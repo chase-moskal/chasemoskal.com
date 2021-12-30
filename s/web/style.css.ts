@@ -33,6 +33,10 @@ main > * + * {
 	margin-top: 0.4rem;
 }
 
+h2, h2, h3, h4, h5, h6 {
+	margin-top: 1em;
+}
+
 main [data-indent] {
 	padding-left: 1em;
 }
