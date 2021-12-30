@@ -1,0 +1,35 @@
+
+name: release to gh-pages
+on:
+  push:
+    branches:
+      - release
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+
+    steps:
+
+    - name: 🛎️ checkout source
+      uses: actions/checkout@v2
+
+    - name: 🔧 setup node
+      uses: actions/setup-node@v2
+      with:
+        node-version: '17'
+
+    - name: 📦 npm install and build
+      shell: bash
+      run: npm ci && npm run build -s
+
+    - name: 🗃️ copy node_modules
+      shell: bash
+      run: npm ci --production && cp -r node_modules/ x/ && rm -rf x/assets
+
+    - name: 🚀 gh-pages deployment
+      uses: JamesIves/github-pages-deploy-action@4.1.7
+      with:
+        branch: gh-pages
+        folder: x
+        single-commit: true
