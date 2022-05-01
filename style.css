@@ -1,0 +1,77 @@
+@import url("https://fonts.googleapis.com/css2?family=Didact+Gothic&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 21px;
+  font-family: "Didact Gothic", sans-serif;
+  color: #888;
+  background: #0b0d0b;
+}
+
+html, body, canvas {
+  height: 100%;
+}
+
+body {
+  padding: 2em 10vw;
+}
+
+main {
+  max-width: 42em;
+}
+
+h1 {
+  color: #ccc;
+  font-weight: normal;
+}
+h1 img {
+  vertical-align: middle;
+  max-width: 3rem;
+  border-radius: 0.5rem;
+}
+
+a {
+  color: #b8ff5b;
+  opacity: 0.7;
+  transition: opacity ease 200ms;
+  text-decoration: none;
+}
+a:visited {
+  opacity: 0.6;
+}
+a:is(:hover, :focus) {
+  opacity: 0.9;
+  text-decoration: underline;
+}
+a:active {
+  opacity: 1;
+}
+
+main > * + * {
+  margin-top: 1rem;
+}
+
+h2, h3, h4, h5, h6 {
+  margin-top: 1em;
+}
+
+.projects {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5em;
+}
+.projects a {
+  display: block;
+  padding: 0.2em 0.5em;
+  background: rgba(255, 255, 255, 0.031372549);
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+  border-bottom: 1px solid #000;
+  border-radius: 0.5em;
+}
+
+/*# sourceMappingURL=style.css.map */
