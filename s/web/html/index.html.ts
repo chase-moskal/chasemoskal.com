@@ -4,16 +4,17 @@ import pageHtml from "./partials/page.html.js"
 import {html} from "xiome/x/toolbox/hamster-html/html.js"
 
 const links = {
-	"xiome": "https://github.com/chase-moskal/xiome",
 	"benevolent.games": "https://github.com/benevolent-bees/benevolent.games",
+	"xiome": "https://github.com/chase-moskal/xiome",
 	"webp-hero": "https://github.com/chase-moskal/webp-hero",
-	"sparrow-rtc": "https://github.com/chase-moskal/sparrow-rtc",
 	"importly": "https://github.com/chase-moskal/importly",
 	"snapstate": "https://github.com/chase-moskal/snapstate",
 	"dbmage": "https://github.com/chase-moskal/dbmage",
+	"renraku": "https://github.com/chase-moskal/renraku",
+	"sparrow-rtc": "https://github.com/chase-moskal/sparrow-rtc",
 	"shopper": "https://github.com/chase-moskal/shopper",
 	"crnc": "https://github.com/chase-moskal/crnc",
-	"renraku": "https://github.com/chase-moskal/renraku",
+	"redcrypto": "https://github.com/chase-moskal/redcrypto",
 }
 
 export default ({v, ...context}: MyWebsiteContext) => pageHtml({
@@ -24,14 +25,14 @@ export default ({v, ...context}: MyWebsiteContext) => pageHtml({
 			<img alt="" src="${v("/assets/chase.jpg")}"/>
 			<span>chase moskal</span>
 		</h1>
-		
-		<p>"i'm too busy on github to have a cool website"</p>
+
+		<p><em>“i'm too busy on github to have a cool website”</em></p>
 		<p><a href="https://github.com/chase-moskal">github.com/chase-moskal</a></p>
 
-		<ul>
+		<div class=projects>
 			${Object.entries(links).map(([label, href]) => html`
-				<li><a href="${href}">${label}</a></li>
+				<a href="${href}">${label}</a>
 			`)}
-		</ul>
+		</div>
 	`
 })
