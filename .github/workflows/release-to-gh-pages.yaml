@@ -24,10 +24,11 @@ jobs:
     - name: 🔨 build
       run: npm run build -s
 
-    - name: ✍️ write cname and nojekyll
+    - name: ✍️ write cname, nojekyll, and robots.txt
       run: |
+        printf "chasemoskal.com" > x/CNAME
+        printf "User-agent: *\nAllow: /" > x/robots.txt
         touch x/.nojekyll
-        echo "chasemoskal.com" > x/CNAME
 
     - name: 🚀 deploy to gh-pages
       uses: JamesIves/github-pages-deploy-action@v4.3.0
