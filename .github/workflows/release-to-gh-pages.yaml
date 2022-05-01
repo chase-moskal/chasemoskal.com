@@ -3,32 +3,34 @@ name: release to gh-pages
 on:
   push:
     branches:
-      - release
+    - release
 
 jobs:
   release:
     runs-on: ubuntu-latest
-
     steps:
 
     - name: 🛎️ checkout source
-      uses: actions/checkout@v2
+      uses: actions/checkout@v3
 
     - name: 🔧 setup node
-      uses: actions/setup-node@v2
+      uses: actions/setup-node@v3
       with:
         node-version: '17'
 
-    - name: 📦 npm install and build
-      shell: bash
-      run: npm ci && npm run build -s
+    - name: 📦 npm install dependencies
+      run: npm ci
 
-    - name: 🗃️ copy node_modules
-      shell: bash
-      run: npm ci --production && cp -r node_modules/ x/
+    - name: 🔨 build
+      run: npm run build -s
 
-    - name: 🚀 gh-pages deployment
-      uses: JamesIves/github-pages-deploy-action@4.1.7
+    - name: ✍️ write cname and nojekyll
+      run: |
+        touch x/.nojekyll
+        echo "chasemoskal.com" > x/CNAME
+
+    - name: 🚀 deploy to gh-pages
+      uses: JamesIves/github-pages-deploy-action@v4.3.0
       with:
         branch: gh-pages
         folder: x
