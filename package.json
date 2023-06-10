@@ -22,25 +22,27 @@
 		"link-modules": "ln -s $(realpath node_modules) x/node_modules",
 		"compile": "run-p links && run-s typescript web",
 		"typescript": "tsc",
-		"web": "turtle --in s:x --out x --excludes **/partials/*:**/*.map +verbose",
+		"web": "turtle --in s:x:blog --out x --excludes \"partials/*:blog/posts/*\" +verbose",
 		"watch-typescript": "tsc -w",
-		"watch-web": "chokidar \"s/**/*.css\" \"x/**/*.html.js\" -c \"npm run web -s && echo 'rebuilt web'\"",
+		"watch-web": "chokidar \"package.json\" \"s/**/*.css\" \"x/**/*.html.js\" \"x/**/*.turtle.js\" \"x/**/*.context.js\" \"s/**/*.md\" -c \"npm run web -s && echo 'rebuilt web'\"",
 		"watch": "run-p watch-typescript watch-web",
-		"test": "exit 0",
+		"test": "exit 0"
 	},
-	"dependencies": {},
-	"peerDependencies": {},
 	"devDependencies": {
 		"@benev/turtle": "^0.1.2",
+		"@types/markdown-it": "^12.2.3",
 		"chokidar": "^3.5.3",
 		"chokidar-cli": "^3.0.0",
 		"es-module-shims": "^1.7.3",
+		"glob": "^10.2.7",
 		"http-server": "^14.1.1",
 		"importly": "^0.2.0",
+		"markdown-it": "^13.0.1",
 		"mkdirp": "^3.0.1",
 		"npm-run-all": "^4.1.5",
 		"rimraf": "^5.0.1",
-		"typescript": "^5.1.3"
+		"typescript": "^5.1.3",
+		"yaml": "^2.3.1"
 	},
 	"repository": {
 		"type": "git",

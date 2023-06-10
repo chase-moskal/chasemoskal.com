@@ -1,0 +1,14 @@
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+html, body {
+	font-size: 21px;
+	background: #222;
+	color: #ccc;
+	min-height: 100%;
+}
+
