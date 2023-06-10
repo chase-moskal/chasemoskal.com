@@ -1,7 +1,6 @@
 
 /x
-/s/**/_*
+/notes
 /node_modules
+/yarn.lock
 
-/*.pem
-/*.tgz

@@ -1,9 +1,10 @@
 {
 	"compilerOptions": {
+		"strict": true,
 		"rootDir": "s",
 		"outDir": "x",
-		"target": "es2018",
-		"lib": ["esnext", "dom"],
+		"target": "es2019",
+		"lib": ["esnext", "dom", "webworker"],
 		"module": "esnext",
 		"moduleResolution": "node",
 		"experimentalDecorators": true,
@@ -11,7 +12,7 @@
 		"esModuleInterop": true,
 		"sourceMap": true,
 		"declaration": true,
-		"skipLibCheck": true
+		"skipLibCheck": true,
 	},
 	"include": [
 		"s/**/*.ts",
