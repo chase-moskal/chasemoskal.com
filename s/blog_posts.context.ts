@@ -1,7 +1,7 @@
 
+import Path from "path"
 import yaml from "yaml"
 import {glob} from "glob"
-import Path from "path"
 import MarkdownIt from "markdown-it"
 import {readFile} from "fs/promises"
 

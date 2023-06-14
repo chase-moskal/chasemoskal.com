@@ -1,13 +1,15 @@
 
-import {webpage, html, unsanitized} from "@benev/turtle"
-
-import pageHtml from "./page.html.js"
+import page from "./page.partial.html.js"
 import {BlogPost} from "../types/blog-post.js"
+import {html, template, unsanitized} from "@benev/turtle"
 
-export default webpage<{post: BlogPost}>(async(basics, {post}) => pageHtml(basics, {
+const {url} = import.meta
+
+export default template<{post: BlogPost}>(async(basics, {post}) => page(basics, {
+	title: `blog - ${post.title}`,
 	content: html`
-		<h1>Chase's Blog</h1>
-		<a href="${basics.base}/">back</a>
+		<h1>chase's blog</h1>
+		<a href="${basics.path(url).root("")}">back</a>
 
 		<article>
 			<h1>${post.title}</h1>
